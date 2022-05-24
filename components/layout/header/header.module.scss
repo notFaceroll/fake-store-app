@@ -1,0 +1,14 @@
+.header {
+  background-color: aquamarine;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  ul {
+    width: clamp(200px, 60vw, 1000px);
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+}

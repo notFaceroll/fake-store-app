@@ -1,0 +1,9 @@
+@use '../abstracts/variables';
+
+html {
+  font-family: variables.$ff-primary;
+
+  a {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,12 @@
+.main {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  text-align: center;
+}
