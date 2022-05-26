@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "./footer";
 import { Header } from "./header";
-import classes from './layout.module.scss';
+import { MainContent } from "./main";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className={classes.wrapper}>
+    <div className="wrapper">
       <Header />
       {children}
       <Footer />

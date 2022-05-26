@@ -1,27 +1,34 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import React from "react";
+import React, { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
 import { Product } from "../../../../store/product-context";
+import { Card } from "../../../../components/card";
+import { ProductsList } from "../../../../components/products-list";
+import { Title } from "../../../../components/title";
 
 interface CategoryProps {
   categories: Product[];
+  categoryName: string;
 }
 
 const Category: NextPage<CategoryProps> = (props) => {
-  console.log(props.categories);
+  const [loadedProducts, setLoadedProducts] = useState<Product[]>(
+    props.categories
+  );
+  console.log(loadedProducts);
   if (!props.categories) {
     return <p>Loading Categories.</p>;
   }
 
   return (
     <>
-      <h1>Category Page</h1>
-      <ul>
+      <Title>{props.categoryName}</Title>
+      <ProductsList>
         {props.categories.map((item, index) => {
-          return <li key={index}>{item.title}</li>;
+          return <Card key={index}>{item.title}</Card>;
         })}
-      </ul>
+      </ProductsList>
     </>
   );
 };
@@ -39,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
   console.log(ctgProducts.data);
   return {
-    props: { categories: ctgProducts.data },
+    props: { categories: ctgProducts.data, categoryName },
   };
 };
 

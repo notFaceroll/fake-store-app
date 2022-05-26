@@ -3,4 +3,14 @@
 @import 'base/typography';
 @import 'base/base';
 
-@import 'abstracts/variables';
+@import 'components/card';
+@import 'components/products-list';
+@import 'components/title';
+
+@import 'layout/header';
+@import 'layout/layout';
+@import 'layout/main';
+
+@import 'pages/home';
+
+@import 'utils/variables';

@@ -1,15 +1,11 @@
 import Link from "next/link";
-import React, { useContext } from "react";
-import ProductContext from "../../../store/product-context";
-import classes from "./header.module.scss";
+import React from "react";
 
 export const Header = () => {
-  // const categoryTypes = useContext(ProductContext);
-
   return (
-    <header className={classes.header}>
+    <header className="header">
       <span>ShopLogo</span>
-      <ul>
+      <ul className="header__list">
         <li>
           <Link href="/">Home</Link>
         </li>

@@ -10,7 +10,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const getStoreItems = useCallback(async () => {
     const products = await axios.get<Product[]>(
-      "https://fakestoreapi.com/products?limit=5"
+      "https://fakestoreapi.com/products"
     );
     const allCategories = await axios.get<string[]>(
       "https://fakestoreapi.com/products/categories"
@@ -28,6 +28,10 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     categories,
   };
 
+  const filteredItems = items.filter((item) => {
+    return item.category !== "men's clothing";
+  });
+  console.log("Filter: ", filteredItems);
   return (
     <ProductContext.Provider value={productCtx}>
       {children}
