@@ -1,16 +1,20 @@
 @charset 'UTF-8';
 
-@import 'base/typography';
-@import 'base/base';
+@import "utils/variables";
 
-@import 'components/card';
-@import 'components/products-list';
-@import 'components/title';
+@import "base/typography";
+@import "base/base";
 
-@import 'layout/header';
-@import 'layout/layout';
-@import 'layout/main';
+@import "components/card";
+@import "components/products-list";
+@import "components/title";
 
-@import 'pages/home';
+@import "layout/navigation";
+@import "layout/header";
+@import "layout/layout";
+@import "layout/main";
+@import "layout/footer";
 
-@import 'utils/variables';
+@import "pages/home";
+@import "pages/categories";
+@import "pages/product";

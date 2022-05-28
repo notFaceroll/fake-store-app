@@ -8,17 +8,15 @@ const Home: NextPage = () => {
   const items = productCtx?.products;
 
   return (
-    <main className="main">
-      <h1 className="title">Popular Items</h1>
+    <main className="category">
+      <div className="category__title">
+        <h1 className="category__heading">On Fucking Sale</h1>
+      </div>
       <ul className="main__list">
         {!items ? (
           <p>Loading...</p>
         ) : (
-          items.map((item) => (
-            <Card key={item.id}>
-              <div>{item.title}</div>
-            </Card>
-          ))
+          items.map((item) => <Card key={item.id} item={item} />)
         )}
       </ul>
     </main>
