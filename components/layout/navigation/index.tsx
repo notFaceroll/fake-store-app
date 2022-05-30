@@ -7,7 +7,6 @@ import {
   DesktopTower,
   Diamond,
 } from "phosphor-react";
-import { useRouter } from "next/router";
 
 export const NavBar = () => {
   return (
@@ -15,38 +14,32 @@ export const NavBar = () => {
       <ul className="nav__list">
         <li className="nav__item">
           <House className="nav__icon" weight="bold" />
-          <Link className="nav__link" href="/">
-            Home
+          <Link href="/">
+            <a className="nav__link">Home</a>
           </Link>
         </li>
         <li className="nav__item">
           <TShirt className="nav__icon" weight="bold" />
-          <Link
-            className="nav__link"
-            href="/products/category/men's%20clothing"
-          >
-            Men&#39;s Clothing
+          <Link href="/products/category/men's%20clothing">
+            <a className="nav__link">Men&#39;s Clothing</a>
           </Link>
         </li>
         <li className="nav__item">
           <CoatHanger className="nav__icon" weight="bold" />
-          <Link
-            className="nav__link"
-            href="/products/category/women's%20clothing"
-          >
-            Women&#39;s Clothing
+          <Link href="/products/category/women's%20clothing">
+            <a className="nav__link">Women&#39;s Clothing</a>
           </Link>
         </li>
         <li className="nav__item">
           <Diamond className="nav__icon" weight="bold" />
-          <Link className="nav__link" href="/products/category/jewelery">
-            Jewelry
+          <Link href="/products/category/jewelery">
+            <a className="nav__link">Jewelry</a>
           </Link>
         </li>
         <li className="nav__item">
           <DesktopTower className="nav__icon" weight="bold" />
           <Link className="nav__link" href="/products/category/electronics">
-            Electronics
+            <a className="nav__link">Electronics</a>
           </Link>
         </li>
       </ul>

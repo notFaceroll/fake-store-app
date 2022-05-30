@@ -1,13 +1,19 @@
 .product {
   grid-column: 2 / 12;
   grid-row: 3 /4;
-  background-color: $color-secondary;
+  background-image: linear-gradient(
+    to bottom,
+    $color-almost-white,
+    $color-salmonish,
+    $color-pale-orange
+  );
   border-radius: 1rem;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(2, 50%);
   padding: 1rem;
+  position: relative;
 
   &__text {
     grid-column: 2 / 3;
@@ -16,6 +22,7 @@
     display: flex;
     gap: 2rem;
     flex-direction: column;
+    color: $color-violet;
   }
 
   &__title {
@@ -28,7 +35,7 @@
     text-transform: capitalize;
     font-family: $ff-title;
     font-weight: 700;
-    color: $color-dark;
+    color: $color-dark-violet;
   }
 
   &__image {
@@ -52,4 +59,44 @@
     display: flex;
     align-items: center;
   }
+
+  &__btn {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background-color: $color-pale-orange;
+    border-radius: $rounded-small;
+    color: $color-dark-violet;
+    font-weight: 700;
+    cursor: pointer;
+
+    &-box {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    &-submit {
+    }
+  }
+}
+
+.custom-shape-divider-bottom-1653940688 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1653940688 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 61px;
+}
+
+.custom-shape-divider-bottom-1653940688 .shape-fill {
+  fill: #ffffff;
 }

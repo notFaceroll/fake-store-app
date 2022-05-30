@@ -1,29 +1,40 @@
 .card-wrapper {
-  padding: 1rem;
+  padding: 0.5rem;
   overflow: hidden;
-  width: min(200px, 100%);
-  height: 20rem;
-  border-radius: 8px;
+  width: min(15rem, 100%);
+  height: 22rem;
   background-color: #fff;
   transition: all 0.2s ease;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-  }
   display: flex;
   flex-direction: column;
   position: relative;
-  border: 1px solid $color-dark;
+  border-radius: $rounded-small;
+  border: 1px solid $color-violet;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .card__image {
-  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  height: 80%;
+  & img {
+    max-width: 100%;
+    display: block;
+  }
+
+  // flex: 1;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .card__text {
-  height: 40%;
+  // margin-top: auto;
+  height: 20%;
   font-size: 0.9rem;
   white-space: nowrap;
   overflow: hidden;

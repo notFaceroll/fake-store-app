@@ -1,0 +1,40 @@
+.cart {
+  width: 400px;
+  height: 300px;
+  background-color: $color-pale-orange;
+  position: absolute;
+  top: 48px;
+  border: 2px solid $color-violet;
+  border-radius: 8px;
+  z-index: 100;
+  right: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    color: $color-violet;
+    border: 1px solid $color-violet;
+  }
+
+  &__btn {
+    margin-top: auto;
+    background-color: $color-pale-orange;
+    color: $color-violet;
+    border: 0;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    text-transform: uppercase;
+  }
+}

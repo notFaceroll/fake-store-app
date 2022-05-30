@@ -2,7 +2,11 @@
   flex: 1;
   grid-column: 2 / 12;
   grid-row: 3 /4;
-  background-color: $color-secondary;
+  background-image: linear-gradient(
+    to bottom,
+    $color-salmonish,
+    $color-almost-white
+  );
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -21,7 +25,7 @@
     font-size: 3rem;
     text-transform: capitalize;
     font-family: $ff-title;
-    color: $color-dark;
+    color: $color-violet;
   }
 }
 

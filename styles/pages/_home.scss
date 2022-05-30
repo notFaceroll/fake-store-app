@@ -1,17 +1,34 @@
 .main {
-
-
   &__list {
     flex: 1 1 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
   }
 }
 
 .title {
   text-align: center;
+}
+
+.custom-shape-divider-top-1653689307 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1653689307 svg {
+  position: relative;
+  display: block;
+  width: calc(132% + 1.3px);
+  height: 95px;
+}
+
+.custom-shape-divider-top-1653689307 .shape-fill {
+  fill: #ffffff;
 }

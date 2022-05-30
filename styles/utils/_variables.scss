@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+
 // font related
 $ff-primary: "Nunito", sans-serif;
 $ff-title: "Poppins", sans-serif;
 
 //// COLORS
-// primary
-$color-primary: #ed7966;
-$color-secondary: #fae5df;
-$color-tertiary: #f5cac2;
-$color-dark: #303179;
-$color-darker: #141850;
+$color-pale-orange: #ed7966;
+$color-almost-white: #fae5df;
+$color-salmonish: #f5cac2;
+$color-violet: #303179;
+$color-dark-violet: #141850;
+
+// other
+$rounded-small: 8px;
+$padding-normal: 1rem;

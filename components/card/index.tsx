@@ -7,7 +7,6 @@ import { CartProvider } from "../../store/CartProvider";
 import CartContext from "../../store/cart-context";
 
 interface CardProps {
-  // children?: React.ReactNode;
   item: Product;
 }
 
@@ -20,7 +19,8 @@ export const Card: React.FC<CardProps> = ({ item }) => {
     <CartProvider>
       <li className="card-wrapper">
         <div className="card__image">
-          <Image src={item.image} alt="" layout="fill" />
+          {/* <Image src={item.image} alt="" layout="fill" /> */}
+          <img src={item.image} alt={item.title} />
         </div>
 
         <div className="card__text">
@@ -32,7 +32,7 @@ export const Card: React.FC<CardProps> = ({ item }) => {
             </p>
           </div>
         </div>
-        <button onClick={addItem}>Add</button>
+        <button onClick={addItem}>Add to Cart</button>
       </li>
     </CartProvider>
   );

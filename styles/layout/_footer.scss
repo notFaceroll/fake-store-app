@@ -1,8 +1,9 @@
 .footer {
   grid-row: 4 / -1;
   grid-column: 1 / -1;
-  color: $color-dark;
-  text-align: center;
+  color: $color-violet;
   height: 2rem;
-  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
