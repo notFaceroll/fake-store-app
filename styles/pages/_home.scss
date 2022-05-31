@@ -1,34 +1,16 @@
-.main {
-  &__list {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    list-style: none;
-  }
-}
+// @import "../themes/page-divider";
 
-.title {
-  text-align: center;
-}
+// .main {
+//   &__list {
+//     flex: 1;
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//     flex-wrap: wrap;
+//     list-style: none;
+//   }
+// }
 
-.custom-shape-divider-top-1653689307 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top-1653689307 svg {
-  position: relative;
-  display: block;
-  width: calc(132% + 1.3px);
-  height: 95px;
-}
-
-.custom-shape-divider-top-1653689307 .shape-fill {
-  fill: #ffffff;
-}
+// .title {
+//   text-align: center;
+// }

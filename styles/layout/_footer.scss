@@ -1,9 +1,13 @@
 .footer {
   grid-row: 4 / -1;
   grid-column: 1 / -1;
-  color: $color-violet;
   height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  a {
+    color: $color-violet;
+    display: flex;
+    align-items: center;
+  }
 }

@@ -1,16 +1,14 @@
 .nav {
-  padding-left: 1rem;
-  display: flex;
+  // display: flex;
   justify-content: center;
   align-items: flex-start;
-  grid-column: 1 / -1;
+  grid-column: 2 / 12;
   grid-row: 2 / 3;
-  border-radius: 8px;
-  align-self: center;
-  justify-self: stretch;
+  // align-self: center;
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     list-style: none;
@@ -44,8 +42,8 @@
     bottom: 0;
     height: 2px;
     width: 100%;
-    background: linear-gradient(to right, $color-violet, $color-dark-violet);
-    border-radius: 2px;
+    background-color: $color-violet;
+    border-radius: 1px;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.35s ease;

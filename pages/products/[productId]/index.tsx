@@ -32,44 +32,45 @@ const Product: NextPage<ProductProps> = ({ product }) => {
         <div className="product__title">
           <h3 className="product__heading">{product.title}</h3>
         </div>
-        <div className="product__description">
-          <p>{product.description}</p>
-        </div>
-        <div className="product__reviews">
-          <p>{product.rating.count} Reviews</p>
-        </div>
         <div className="product__rating">
-          <p>{product.rating.rate}</p>
-          <Star />
+          <p>
+            {product.rating.count} Reviews | {product.rating.rate}&nbsp;
+          </p>
+          <Star weight="bold" size={20} />
         </div>
         <div className="product__price">
-          <p>${product.price}</p>
+          <p>${product.price.toFixed(2)}</p>
         </div>
-        <div className="product__btn-box">
-          <button
-            onClick={reduceItemByOne}
-            className="product__btn product__btn-minus"
-          >
-            <Minus />
-          </button>
-          <span className="product__btn product__btn-count">{count}</span>
-          <button
-            onClick={() => {
-              setCount(count + 1);
-            }}
-            className="product__btn product__btn-plus"
-          >
-            <Plus />
-          </button>
+        <div className="product__actions">
+          <div className="product__actions-box">
+            <button
+              onClick={reduceItemByOne}
+              className="product__btn product__btn-minus"
+            >
+              <Minus weight="bold" />
+            </button>
+            <span className="product__btn product__btn-count">{count}</span>
+            <button
+              onClick={() => {
+                setCount(count + 1);
+              }}
+              className="product__btn product__btn-plus"
+            >
+              <Plus weight="bold" />
+            </button>
+          </div>
           <button
             onClick={() => {
               cartCtx.addItems(product, count);
             }}
             className="product__btn product__btn-submit"
           >
-            Add to Cart!
+            Add to Cart
           </button>
         </div>
+      </div>
+      <div className="product__desc">
+        <p>{product.description}</p>
       </div>
       <div className="custom-shape-divider-bottom-1653940688">
         <svg
@@ -99,7 +100,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const product = await axios.get<unknown>(
     `https://fakestoreapi.com/products/${productId}`
   );
-  console.log(product.data);
   return {
     props: { product: product.data },
   };

@@ -12,16 +12,21 @@ interface CategoryProps {
 }
 
 const Category: NextPage<CategoryProps> = (props) => {
-  // const [loadedProducts, setLoadedProducts] = useState<Product[]>(
-  //   props.categories
-  // );
   if (!props.categories) {
     return <p>Loading Categories.</p>;
   }
 
   return (
     <main className="category">
-      <div className="custom-shape-divider-top-1653689307">
+      <div className="category__title">
+        <h2 className="category__heading">{props.categoryName}</h2>
+      </div>
+      <ProductsList>
+        {props.categories.map((item, index) => {
+          return <Card key={index} item={item} />;
+        })}
+      </ProductsList>
+      <div className="custom-shape-divider-bottom-1653940688">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,14 +39,6 @@ const Category: NextPage<CategoryProps> = (props) => {
           ></path>
         </svg>
       </div>
-      <div className="category__title">
-        <h2 className="category__heading">{props.categoryName}</h2>
-      </div>
-      <ProductsList>
-        {props.categories.map((item, index) => {
-          return <Card key={index} item={item} />;
-        })}
-      </ProductsList>
     </main>
   );
 };
@@ -57,7 +54,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const ctgProducts = await axios.get<Product[]>(
     `https://fakestoreapi.com/products/category/${categoryName}`
   );
-  console.log(ctgProducts.data);
   return {
     props: { categories: ctgProducts.data, categoryName },
   };
