@@ -1,25 +1,24 @@
-import { useContext } from "react";
-import type { NextPage } from "next";
-import ProductContext from "../store/product-context";
+import type { GetStaticProps, NextPage } from "next";
+import { Product } from "../store/product-context";
+import axios from "axios";
 
 import { Card } from "../components/card";
 import { ProductsList } from "../components/products-list";
 
-const Home: NextPage = () => {
-  const productCtx = useContext(ProductContext);
-  const items = productCtx?.products;
+interface HomeProps {
+  featuredProducts: Product[];
+}
 
+const Home: NextPage<HomeProps> = ({ featuredProducts }) => {
   return (
     <main className="category">
       <div className="category__title">
         <h1 className="category__heading">Popular Items</h1>
       </div>
       <ProductsList>
-        {!items ? (
-          <p>Loading...</p>
-        ) : (
-          items.map((item) => <Card key={item.id} item={item} />)
-        )}
+        {featuredProducts.map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
       </ProductsList>
       <div className="custom-shape-divider-bottom-1653940688">
         <svg
@@ -39,3 +38,14 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const featuredProducts = await axios.get<Product[]>(
+    "https://fakestoreapi.com/products?limit=6"
+  );
+  return {
+    props: {
+      featuredProducts: featuredProducts.data,
+    },
+  };
+};

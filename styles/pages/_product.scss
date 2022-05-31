@@ -2,13 +2,14 @@
 
 .product {
   grid-column: 2 / 12;
-  grid-row: 3 /4;
+  grid-row: 3 / 4;
   background-image: linear-gradient(
     to bottom,
     $color-salmonish,
     $color-almost-white
   );
   border-radius: $rounded-small;
+
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, 50%);
@@ -63,6 +64,7 @@
   &__rating {
     display: flex;
     align-items: center;
+    font-weight: 700;
   }
 
   &__price {
@@ -119,6 +121,35 @@
       background-color: $color-violet;
       color: $color-almost-white;
       text-transform: uppercase;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% min-content min-content;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+
+    &__image {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    &__text {
+      gap: 1rem;
+      padding: 0;
+    }
+
+    &__actions {
+      justify-content: space-between;
+    }
+
+    &__desc {
     }
   }
 }

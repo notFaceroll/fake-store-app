@@ -6,8 +6,49 @@
   align-items: center;
   position: relative;
 
+  &__sidebar {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-almost-white;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__X {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    gap: 1rem;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-column: 1 / -1;
+    padding: 0 8px;
+
+    &__menu {
+      display: inline-block;
+    }
+  }
+
   &__brand {
     color: $color-violet;
+    font-size: clamp(1.125rem, 4vw, 2.5rem);
 
     &-name {
       color: $color-pale-orange;

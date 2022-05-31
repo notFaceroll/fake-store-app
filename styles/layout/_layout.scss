@@ -2,9 +2,14 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: 4rem min-content 1fr 10%;
-  min-height: 100vh;
+  // min-height: 100vh;
   padding: 0 2rem;
   background-color: #fff;
   max-width: 1440px;
   margin: 0 auto;
+
+  @media screen and (max-width: 720px) {
+    grid-template-rows: 4rem min-content 10%;
+    padding: 0;
+  }
 }
