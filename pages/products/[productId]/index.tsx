@@ -6,8 +6,9 @@ import axios from "axios";
 
 import { Product } from "../../../store/product-context";
 
-import { Star, Minus, Plus } from "phosphor-react";
+import { Star, Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import CartContext from "../../../store/cart-context";
+import Image from "next/image";
 
 interface ProductProps {
   product: Product;
@@ -26,17 +27,22 @@ const Product: NextPage<ProductProps> = ({ product }) => {
   return (
     <main className="product">
       <div className="product__image">
-        <img src={product.image} alt="" />
+        <Image
+          src={product.image}
+          alt={product.title}
+          layout="fill"
+          objectFit="contain"
+        />
       </div>
       <div className="product__text">
         <div className="product__title">
           <h3 className="product__heading">{product.title}</h3>
-        </div>
-        <div className="product__rating">
-          <p>
-            {product.rating.count} Reviews | {product.rating.rate}&nbsp;
-          </p>
-          <Star weight="bold" size={20} />
+          <div className="product__rating">
+            <p>
+              {product.rating.count} Reviews | {product.rating.rate}&nbsp;
+            </p>
+            <Star weight="bold" size={20} />
+          </div>
         </div>
         <div className="product__price">
           <p>${product.price.toFixed(2)}</p>
@@ -44,28 +50,31 @@ const Product: NextPage<ProductProps> = ({ product }) => {
         <div className="product__actions">
           <div className="product__actions-box">
             <button
+              aria-label="Decrease by one"
               onClick={reduceItemByOne}
               className="product__btn product__btn-minus"
             >
-              <Minus weight="bold" />
+              <Minus size={16} weight="bold" />
             </button>
             <span className="product__btn product__btn-count">{count}</span>
             <button
+              aria-label="Increase by one"
               onClick={() => {
                 setCount(count + 1);
               }}
               className="product__btn product__btn-plus"
             >
-              <Plus weight="bold" />
+              <Plus size={16} weight="bold" />
             </button>
           </div>
           <button
+            aria-label="Add to the cart"
             onClick={() => {
               cartCtx.addItems(product, count);
             }}
             className="product__btn product__btn-submit"
           >
-            Add to Cart
+            <ShoppingCartSimple size={20} weight="bold" /> Add to Cart
           </button>
         </div>
       </div>

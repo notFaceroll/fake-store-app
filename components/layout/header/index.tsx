@@ -34,84 +34,96 @@ export const Header = () => {
         <span className="header__cart-items">{cartCtx.items.length}</span>
       </div>
 
-      {isOpen && <Cart />}
-      {isNavOpen && (
-        <aside className="header__sidebar">
-          <X
+      {isOpen && (
+        <>
+          <div
             onClick={() => {
-              setIsNavOpen(!isNavOpen);
+              setIsOpen(!isOpen);
             }}
-            className="header__X"
-            size={26}
-          />
-          <nav className="header__nav">
-            <ul className="header__list">
-              <li className="header__item">
-                <Link href="/">
-                  <a
-                    onClick={() => {
-                      setIsNavOpen(!isNavOpen);
-                    }}
+            className="backdrop"
+          ></div>
+          <Cart />
+        </>
+      )}
+      {isNavOpen && (
+        <>
+          <aside className="header__sidebar">
+            <X
+              onClick={() => {
+                setIsNavOpen(!isNavOpen);
+              }}
+              className="header__X"
+              size={26}
+            />
+            <nav className="header__nav">
+              <ul className="header__list">
+                <li className="header__item">
+                  <Link href="/">
+                    <a
+                      onClick={() => {
+                        setIsNavOpen(!isNavOpen);
+                      }}
+                      className="header__link"
+                    >
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li className="header__item">
+                  <Link href="/products/category/men's%20clothing">
+                    <a
+                      onClick={() => {
+                        setIsNavOpen(!isNavOpen);
+                      }}
+                      className="header__link"
+                    >
+                      Men&#39;s Clothing
+                    </a>
+                  </Link>
+                </li>
+                <li className="header__item">
+                  <Link href="/products/category/women's%20clothing">
+                    <a
+                      onClick={() => {
+                        setIsNavOpen(!isNavOpen);
+                      }}
+                      className="header__link"
+                    >
+                      Women&#39;s Clothing
+                    </a>
+                  </Link>
+                </li>
+                <li className="header__item">
+                  <Link href="/products/category/jewelery">
+                    <a
+                      onClick={() => {
+                        setIsNavOpen(!isNavOpen);
+                      }}
+                      className="header__link"
+                    >
+                      Jewelry
+                    </a>
+                  </Link>
+                </li>
+                <li className="header__item">
+                  <Link
                     className="header__link"
+                    href="/products/category/electronics"
                   >
-                    Home
-                  </a>
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link href="/products/category/men's%20clothing">
-                  <a
-                    onClick={() => {
-                      setIsNavOpen(!isNavOpen);
-                    }}
-                    className="header__link"
-                  >
-                    Men&#39;s Clothing
-                  </a>
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link href="/products/category/women's%20clothing">
-                  <a
-                    onClick={() => {
-                      setIsNavOpen(!isNavOpen);
-                    }}
-                    className="header__link"
-                  >
-                    Women&#39;s Clothing
-                  </a>
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link href="/products/category/jewelery">
-                  <a
-                    onClick={() => {
-                      setIsNavOpen(!isNavOpen);
-                    }}
-                    className="header__link"
-                  >
-                    Jewelry
-                  </a>
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link
-                  className="header__link"
-                  href="/products/category/electronics"
-                >
-                  <a
-                    onClick={() => {
-                      setIsNavOpen(!isNavOpen);
-                    }}
-                    className="header__link"
-                  >
-                    Electronics
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </aside>
+                    <a
+                      onClick={() => {
+                        setIsNavOpen(!isNavOpen);
+                      }}
+                      className="header__link"
+                    >
+                      Electronics
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+        </>
       )}
     </header>
   );

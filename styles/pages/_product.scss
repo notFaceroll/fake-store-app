@@ -9,7 +9,6 @@
     $color-almost-white
   );
   border-radius: $rounded-small;
-
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, 50%);
@@ -24,14 +23,7 @@
     padding: 1rem;
     background-color: #fff;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    object-fit: cover;
-
-    & img {
-      display: block;
-      max-width: 100%;
-    }
+    position: relative;
   }
 
   &__text {
@@ -49,16 +41,18 @@
   }
 
   &__heading {
-    font-size: 1.5rem;
+    // font-size: 1.75rem;
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
     text-transform: capitalize;
     font-family: $ff-title;
     font-weight: 700;
-    color: $color-dark-violet;
+    color: $color-violet;
   }
 
   &__desc {
     color: $color-violet;
     font-weight: 700;
+    font-size: clamp(0.8rem, 1.75vw, 1rem);
   }
 
   &__rating {
@@ -68,7 +62,7 @@
   }
 
   &__price {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     background-color: $color-almost-white;
     border-radius: $rounded-small;
@@ -81,75 +75,102 @@
 
     &-box {
       display: flex;
-      gap: 4px;
-      border: 1px solid $color-violet;
       border-radius: $rounded-small;
-      overflow: hidden;
     }
   }
 
   &__btn {
     padding: 0.5rem 1rem;
     border: 0;
-    background-color: transparent;
-    color: $color-dark-violet;
     font-weight: 700;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-    &-box {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-    }
-
-    &-minus,
-    &-plus {
+    &-minus {
       background-color: $color-violet;
       color: $color-almost-white;
     }
+    &-plus {
+      background-color: $color-pale-orange;
+      color: $color-violet;
+    }
+    &-minus,
+    &-plus {
+      border-radius: $rounded-small;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
     &-count {
-      width: 50px;
       text-align: center;
-      background-color: $color-salmonish;
-      color: $color-violet;
+      color: $color-dark-violet;
       border-radius: 0;
     }
 
     &-submit {
       border-radius: $rounded-small;
-      background-color: $color-violet;
-      color: $color-almost-white;
+      cursor: pointer;
+      color: $color-violet;
+      background-color: transparent;
       text-transform: uppercase;
+      position: relative;
+      z-index: 50;
+      overflow: hidden;
+      border: 1px solid $color-violet;
+      transition: all 0.2s ease;
+    }
+
+    &-submit:active,
+    &-minus:active,
+    &-plus:active {
+      transform: translateY(3px);
+    }
+
+    &-submit::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $color-pale-orange;
+      border-radius: $rounded-small;
+      right: 0;
+      top: 0;
+      transform-origin: right left;
+      transform: rotate(-180deg);
+      transition: all 0.2s ease;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    &-submit:hover::before {
+      transform: rotate(0);
+      opacity: 1;
     }
   }
 
   @media screen and (max-width: 720px) {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    padding: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 25% min-content min-content;
-
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 5rem;
+    grid-template-rows: 50% min-content min-content;
+    padding-bottom: 10rem;
 
     &__image {
-      width: 50%;
-      margin: 0 auto;
+      flex: 1;
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
     }
 
     &__text {
+      grid-row: 2 / 3;
       gap: 1rem;
       padding: 0;
+      grid-column: 1 / -1;
     }
 
     &__actions {
       justify-content: space-between;
-    }
-
-    &__desc {
     }
   }
 }

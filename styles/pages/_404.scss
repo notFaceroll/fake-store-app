@@ -1,0 +1,7 @@
+.not-found {
+  grid-row: 3 / 4;
+  grid-column: 2 / 12;
+  display: grid;
+  place-items: center;
+  color: $color-violet;
+}

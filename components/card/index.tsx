@@ -21,8 +21,12 @@ export const Card: React.FC<CardProps> = ({ item }) => {
     <CartProvider>
       <li className="card">
         <div className="card__image">
-          {/* <Image src={item.image} alt="" layout="fill" /> */}
-          <img src={item.image} alt={item.title} />
+          <Image
+            src={item.image}
+            alt={item.title}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
 
         <div className="card__text">
@@ -34,7 +38,11 @@ export const Card: React.FC<CardProps> = ({ item }) => {
             <Star />
           </div>
         </div>
-        <button className="card__btn" onClick={addItem}>
+        <button
+          aria-label="Add to cart"
+          className="card__btn"
+          onClick={addItem}
+        >
           Add to Cart
         </button>
       </li>

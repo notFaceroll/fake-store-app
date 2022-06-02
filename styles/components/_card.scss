@@ -1,7 +1,7 @@
 .card {
   padding: 0.5rem;
   overflow: hidden;
-  width: min(15rem, 100%);
+  width: min(16rem, 100%);
   height: 22rem;
   background-color: #fff;
   transition: all 0.2s ease;
@@ -13,21 +13,14 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &:hover {
-    transform: scale(1.05);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
 
   &__image {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
     height: 80%;
     position: relative;
     margin-bottom: 0.5rem;
-
-    & img {
-      max-width: 100%;
-      display: block;
-    }
   }
 
   &__text {
@@ -60,5 +53,14 @@
     color: $color-violet;
     cursor: pointer;
     border-radius: $rounded-small;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: darken($color: $color-salmonish, $amount: 10);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
