@@ -20,10 +20,10 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     border-radius: 8px;
-    padding: 1rem;
     background-color: #fff;
     height: 100%;
     position: relative;
+    border: 1rem solid #fff;
   }
 
   &__text {
@@ -34,6 +34,7 @@
     flex-direction: column;
     color: $color-violet;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   &__title {
@@ -41,7 +42,6 @@
   }
 
   &__heading {
-    // font-size: 1.75rem;
     font-size: clamp(1rem, 2.5vw, 1.75rem);
     text-transform: capitalize;
     font-family: $ff-title;
@@ -70,7 +70,7 @@
 
   &__actions {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 1rem;
 
     &-box {
@@ -90,11 +90,20 @@
     &-minus {
       background-color: $color-violet;
       color: $color-almost-white;
+
+      &:hover {
+        background-color: lighten($color: $color-violet, $amount: 10);
+      }
     }
     &-plus {
       background-color: $color-pale-orange;
       color: $color-violet;
+
+      &:hover {
+        background-color: darken($color: $color-pale-orange, $amount: 10);
+      }
     }
+
     &-minus,
     &-plus {
       border-radius: $rounded-small;
@@ -117,7 +126,7 @@
       position: relative;
       z-index: 50;
       overflow: hidden;
-      border: 1px solid $color-violet;
+      border: 2px solid $color-violet;
       transition: all 0.2s ease;
     }
 
@@ -171,6 +180,7 @@
 
     &__actions {
       justify-content: space-between;
+      width: 100%;
     }
   }
 }

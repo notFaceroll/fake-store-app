@@ -1,12 +1,6 @@
 .nav {
-  // justify-content: center;
-  // align-items: flex-start;
   grid-column: 2 / 12;
   grid-row: 2 / 3;
-
-  @media screen and (max-width: 720px) {
-    display: none;
-  }
 
   &__list {
     display: flex;
@@ -25,7 +19,7 @@
   }
 
   &__icon {
-    margin-right: 15px;
+    margin-right: 1rem;
     color: $color-violet;
   }
 
@@ -54,6 +48,10 @@
   &__link:hover::before {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  @media screen and (max-width: 720px) {
+    display: none;
   }
 }
 

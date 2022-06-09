@@ -1,23 +1,28 @@
 .cart {
-  width: min(80vw, 400px);
+  width: 50%;
   min-height: 300px;
-  background-image: linear-gradient(
-    to bottom,
-    $color-salmonish,
-    $color-almost-white
-  );
   position: absolute;
   top: 56px;
   border: 2px solid $color-violet;
   border-radius: $rounded-small;
   z-index: 100;
-  right: 16px;
+  right: 0;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   overflow: auto;
   justify-content: space-between;
   gap: 1rem;
+  background-image: linear-gradient(
+    to bottom,
+    $color-salmonish,
+    $color-almost-white
+  );
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    border-radius: 0;
+  }
 
   &__list {
     list-style: none;

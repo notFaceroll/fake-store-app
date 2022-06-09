@@ -1,0 +1,21 @@
+.btn-primary {
+  border: 0;
+  background-color: $color-salmonish;
+  height: 40px;
+  font-family: inherit;
+  font-weight: 700;
+  color: $color-violet;
+  cursor: pointer;
+  border-radius: $rounded-small;
+  transition: all 0.2s ease;
+  flex: 1 1 240px;
+  border: 1px solid $color-violet;
+
+  &:hover {
+    background-color: darken($color: $color-salmonish, $amount: 10);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

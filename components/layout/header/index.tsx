@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../../store/cart-context";
 import Link from "next/link";
 
@@ -6,9 +6,24 @@ import { Cart } from "../../cart";
 import { ShoppingCartSimple, List, X } from "phosphor-react";
 
 export const Header = () => {
-  const cartCtx = useContext(CartContext);
+  const { items } = useContext(CartContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const [btnIsHighLighted, setBtnIsHighlighted] = useState(false);
+
+  useEffect(() => {
+    if (items.length === 0) {
+      return;
+    }
+    setBtnIsHighlighted(true);
+    const timer = setTimeout(() => {
+      setBtnIsHighlighted(false);
+    }, 300);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [items]);
 
   return (
     <header className="header">
@@ -24,15 +39,15 @@ export const Header = () => {
         Store
       </h1>
 
-      <div className="header__cart">
-        <ShoppingCartSimple
-          size={26}
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-        />
-        <span className="header__cart-items">{cartCtx.items.length}</span>
-      </div>
+      <button
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className={`header__cart ${btnIsHighLighted ? 'bump' : null}`}
+      >
+        <ShoppingCartSimple size={26} />
+        <span className="header__cart-items">{items.length}</span>
+      </button>
 
       {isOpen && (
         <>

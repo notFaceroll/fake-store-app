@@ -4,17 +4,6 @@
   flex: 1;
   grid-column: 2 / 12;
   grid-row: 3 / 4;
-
-  @media screen and (max-width: 720px) {
-    grid-column: 1 / 13;
-    grid-row: 2 / 3;
-    padding: 0 8px 5rem;
-
-    &__title {
-      text-align: center;
-    }
-  }
-
   background-image: linear-gradient(
     to bottom,
     $color-salmonish,
@@ -24,9 +13,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem 5rem;
   position: relative;
-  padding-bottom: 5rem;
 
   &__title {
     width: 100%;
@@ -37,5 +25,15 @@
     text-transform: capitalize;
     font-family: $ff-title;
     color: $color-violet;
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-column: 1 / 13;
+    grid-row: 2 / 3;
+    padding: 0 8px 5rem;
+
+    &__title {
+      text-align: center;
+    }
   }
 }

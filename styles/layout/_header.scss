@@ -19,10 +19,40 @@
     justify-content: center;
   }
 
+  &__link:active,
+  &__link:visited,
+  &__link:link,
+  &__link:focus {
+    color: $color-violet;
+    font-weight: 700;
+    position: relative;
+  }
+
+  &__link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $color-pale-orange;
+    border-radius: 1px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.35s ease;
+    z-index: -1;
+  }
+
+  &__link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
   &__X {
     position: fixed;
     top: 1rem;
     right: 1rem;
+    cursor: pointer;
+    color: $color-violet;
   }
 
   &__list {
@@ -35,6 +65,7 @@
 
   &__menu {
     display: none;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 720px) {
@@ -64,6 +95,14 @@
     border: 2px solid $color-violet;
     cursor: pointer;
     position: relative;
+    background-color: transparent;
+    outline-offset: 4px;
+    outline-color: $color-pale-orange;
+    transition: all 0.2s ease;
+
+    &:active {
+      transform: scale(1.09);
+    }
 
     &-items {
       position: absolute;
@@ -90,4 +129,30 @@
   height: 100vh;
   z-index: 50;
   background-color: rgba($color: #000000, $alpha: 0.1);
+}
+
+.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(0.9);
+  }
+
+  30% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

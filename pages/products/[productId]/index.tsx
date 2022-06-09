@@ -9,6 +9,7 @@ import { Product } from "../../../store/product-context";
 import { Star, Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import CartContext from "../../../store/cart-context";
 import Image from "next/image";
+import { AddToCartButton } from "../../../components/buttons/AddToCartButton";
 
 interface ProductProps {
   product: Product;
@@ -44,6 +45,9 @@ const Product: NextPage<ProductProps> = ({ product }) => {
             <Star weight="bold" size={20} />
           </div>
         </div>
+        <div className="product__desc">
+          <p>{product.description}</p>
+        </div>
         <div className="product__price">
           <p>${product.price.toFixed(2)}</p>
         </div>
@@ -67,7 +71,8 @@ const Product: NextPage<ProductProps> = ({ product }) => {
               <Plus size={16} weight="bold" />
             </button>
           </div>
-          <button
+          <AddToCartButton item={product} quantity={count} />
+          {/* <button
             aria-label="Add to the cart"
             onClick={() => {
               cartCtx.addItems(product, count);
@@ -75,12 +80,10 @@ const Product: NextPage<ProductProps> = ({ product }) => {
             className="product__btn product__btn-submit"
           >
             <ShoppingCartSimple size={20} weight="bold" /> Add to Cart
-          </button>
+          </button> */}
         </div>
       </div>
-      <div className="product__desc">
-        <p>{product.description}</p>
-      </div>
+
       <div className="custom-shape-divider-bottom-1653940688">
         <svg
           data-name="Layer 1"

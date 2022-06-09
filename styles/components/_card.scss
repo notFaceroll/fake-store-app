@@ -2,6 +2,8 @@
   padding: 0.5rem;
   overflow: hidden;
   width: min(16rem, 100%);
+  width: 100%;
+  width: clamp(15rem, 100%, 20rem);
   height: 22rem;
   background-color: #fff;
   transition: all 0.2s ease;
@@ -18,13 +20,13 @@
   }
 
   &__image {
-    height: 80%;
+    height: 70%;
     position: relative;
     margin-bottom: 0.5rem;
   }
 
   &__text {
-    height: 20%;
+    flex: 1;
     font-size: 0.9rem;
     white-space: nowrap;
     overflow: hidden;
@@ -44,23 +46,7 @@
     color: $color-violet;
   }
 
-  &__btn {
-    border: 0;
-    background-color: $color-salmonish;
-    padding: 0.5rem 0;
-    font-family: inherit;
-    font-weight: 700;
-    color: $color-violet;
-    cursor: pointer;
-    border-radius: $rounded-small;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: darken($color: $color-salmonish, $amount: 10);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
+  &__box {
+    display: flex;
   }
 }

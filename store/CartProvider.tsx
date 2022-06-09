@@ -41,7 +41,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       };
       updatedItems = cartItems.concat(cartItem);
     }
-
     setCartItems(updatedItems);
   };
   const removeItems = (product: Product) => {
