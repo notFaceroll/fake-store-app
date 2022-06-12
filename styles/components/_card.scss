@@ -12,11 +12,11 @@
   position: relative;
   border-radius: $rounded-small;
   border: 1px solid $color-violet;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba($color-violet, 0.24) 0px 3px 8px;
 
   &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba($color-violet, 0.25) 0px 50px 100px -20px,
+      rgba($color-dark-violet, 0.3) 0px 30px 60px -30px;
   }
 
   &__image {

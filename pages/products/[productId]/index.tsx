@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -6,8 +6,7 @@ import axios from "axios";
 
 import { Product } from "../../../store/product-context";
 
-import { Star, Minus, Plus, ShoppingCartSimple } from "phosphor-react";
-import CartContext from "../../../store/cart-context";
+import { Star, Minus, Plus } from "phosphor-react";
 import Image from "next/image";
 import { AddToCartButton } from "../../../components/buttons/AddToCartButton";
 
@@ -16,7 +15,6 @@ interface ProductProps {
 }
 
 const Product: NextPage<ProductProps> = ({ product }) => {
-  const cartCtx = useContext(CartContext);
   const [count, setCount] = useState(1);
 
   const reduceItemByOne = () => {
@@ -71,16 +69,7 @@ const Product: NextPage<ProductProps> = ({ product }) => {
               <Plus size={16} weight="bold" />
             </button>
           </div>
-          <AddToCartButton item={product} quantity={count} />
-          {/* <button
-            aria-label="Add to the cart"
-            onClick={() => {
-              cartCtx.addItems(product, count);
-            }}
-            className="product__btn product__btn-submit"
-          >
-            <ShoppingCartSimple size={20} weight="bold" /> Add to Cart
-          </button> */}
+          <AddToCartButton item={product} quantity={count} variation="large" />
         </div>
       </div>
 

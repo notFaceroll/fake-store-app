@@ -52,7 +52,9 @@ export const Cart = () => {
       ) : (
         <div className="cart__empty">
           <ShoppingBagOpen size={48} />
-          <p>Your cart looks empty right now</p>
+          <p>
+            Your cart looks empty right now :(<br /> Go shopping!
+          </p>
         </div>
       )}
     </aside>

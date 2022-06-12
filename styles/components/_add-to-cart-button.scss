@@ -18,4 +18,8 @@
   &:active {
     transform: scale(0.98);
   }
+
+  &.large {
+    flex: 1 1 240px;
+  }
 }

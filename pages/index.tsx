@@ -12,7 +12,6 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ featuredProducts }) => {
   return (
     <main className="category">
-      {/* this can be a component */}
       <div className="category__title">
         <h1 className="category__heading">Popular Items</h1>
       </div>
@@ -21,8 +20,6 @@ const Home: NextPage<HomeProps> = ({ featuredProducts }) => {
           <Card key={item.id} item={item} />
         ))}
       </ProductsList>
-
-      {/* this also can be a component */}
       <div className="custom-shape-divider-bottom-1653940688">
         <svg
           data-name="Layer 1"
