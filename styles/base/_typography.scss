@@ -1,7 +1,5 @@
-@use '../utils/variables';
-
 html {
-  font-family: variables.$ff-primary;
+  font-family: $ff-primary;
 
   a {
     text-decoration: none;

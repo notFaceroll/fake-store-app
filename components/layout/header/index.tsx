@@ -12,6 +12,10 @@ export const Header = () => {
 
   const [btnIsHighLighted, setBtnIsHighlighted] = useState(false);
 
+  const toggleCart = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     if (items.length === 0) {
       return;
@@ -40,10 +44,8 @@ export const Header = () => {
       </h1>
 
       <button
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-        className={`header__cart ${btnIsHighLighted ? 'bump' : null}`}
+        onClick={toggleCart}
+        className={`header__cart ${btnIsHighLighted ? "bump" : null}`}
       >
         <ShoppingCartSimple size={26} />
         <span className="header__cart-items">{items.length}</span>
@@ -51,13 +53,8 @@ export const Header = () => {
 
       {isOpen && (
         <>
-          <div
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-            className="backdrop"
-          ></div>
-          <Cart />
+          <div onClick={toggleCart} className="backdrop"></div>
+          <Cart toggleCart={toggleCart} />
         </>
       )}
       {isNavOpen && (

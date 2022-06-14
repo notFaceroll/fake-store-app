@@ -1,8 +1,6 @@
 .card {
   padding: 0.5rem;
   overflow: hidden;
-  width: min(16rem, 100%);
-  width: 100%;
   width: clamp(15rem, 100%, 20rem);
   height: 22rem;
   background-color: #fff;
@@ -35,12 +33,12 @@
 
   &__link {
     color: $color-violet;
-    font-weight: 700;
+    font-weight: $text-bold;
   }
 
   &__pricing {
     display: flex;
-    font-weight: 700;
+    font-weight: $text-bold;
     align-items: center;
     gap: 0.2rem;
     color: $color-violet;

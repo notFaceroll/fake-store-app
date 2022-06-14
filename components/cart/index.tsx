@@ -3,10 +3,20 @@ import CartContext from "../../store/cart-context";
 
 import { Trash, ShoppingBagOpen } from "phosphor-react";
 
-export const Cart = () => {
+interface CartProps {
+  toggleCart: () => void;
+}
+
+export const Cart = ({ toggleCart }: CartProps) => {
   const cartCtx = useContext(CartContext);
   return (
     <aside className="cart">
+      <div className="cart__header">
+        <p>Your Items</p>
+        <button className="cart__close" onClick={toggleCart}>
+          Close
+        </button>
+      </div>
       {cartCtx.items.length > 0 ? (
         <>
           <ul className="cart__list">
@@ -53,7 +63,8 @@ export const Cart = () => {
         <div className="cart__empty">
           <ShoppingBagOpen size={48} />
           <p>
-            Your cart looks empty right now :(<br /> Go shopping!
+            Your cart looks empty right now :(
+            <br /> Go shopping!
           </p>
         </div>
       )}
