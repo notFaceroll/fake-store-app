@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import CartContext, { CartItem } from "./cart-context";
 import { Product } from "./product-context";
 
-export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+interface CartProviderProps {
+  children?: React.ReactNode;
+}
+
+export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [total, setTotal] = useState(0);
 

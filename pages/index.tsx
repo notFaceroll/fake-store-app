@@ -10,16 +10,16 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ featuredProducts }) => {
+  const mappedItemsList = featuredProducts.map((item) => (
+    <Card key={item.id} item={item} />
+  ));
+
   return (
     <main className="category">
       <div className="category__title">
         <h1 className="category__heading">Popular Items</h1>
       </div>
-      <ProductsList>
-        {featuredProducts.map((item) => (
-          <Card key={item.id} item={item} />
-        ))}
-      </ProductsList>
+      <ProductsList>{mappedItemsList}</ProductsList>
       <div className="custom-shape-divider-bottom-1653940688">
         <svg
           data-name="Layer 1"

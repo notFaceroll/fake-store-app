@@ -9,6 +9,7 @@ interface CartProps {
 
 export const Cart = ({ toggleCart }: CartProps) => {
   const cartCtx = useContext(CartContext);
+
   return (
     <aside className="cart">
       <div className="cart__header">

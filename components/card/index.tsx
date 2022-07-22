@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-   
+
 import { Product } from "../../store/product-context";
 
 import { Star } from "phosphor-react";
@@ -11,7 +11,7 @@ interface CardProps {
   item: Product;
 }
 
-export const Card: React.FC<CardProps> = ({ item }) => {
+export const Card = ({ item }: CardProps) => {
   return (
     <li className="card">
       <div className="card__image">

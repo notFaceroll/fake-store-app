@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import {
+  GetServerSideProps,
+  GetStaticPaths,
+  GetStaticProps,
+  NextPage,
+} from "next";
 import { ParsedUrlQuery } from "querystring";
 import axios from "axios";
 
@@ -96,25 +101,35 @@ interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const { productId } = context.params as IParams;
+//   const product = await axios.get<unknown>(
+//     `https://fakestoreapi.com/products/${productId}`
+//   );
+//   return {
+//     props: { product: product.data },
+//   };
+// };
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const products = await axios.get<Product[]>(
+//     "https://fakestoreapi.com/products"
+//   );
+//   const paths = products.data.map((item) => ({
+//     params: { productId: item.id.toString() },
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { productId } = context.params as IParams;
   const product = await axios.get<unknown>(
     `https://fakestoreapi.com/products/${productId}`
   );
   return {
     props: { product: product.data },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await axios.get<Product[]>(
-    "https://fakestoreapi.com/products"
-  );
-  const paths = products.data.map((item) => ({
-    params: { productId: item.id.toString() },
-  }));
-  return {
-    paths,
-    fallback: false,
   };
 };

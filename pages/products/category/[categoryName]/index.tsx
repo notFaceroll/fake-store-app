@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import React, { useState } from "react";
+import React from "react";
 import { ParsedUrlQuery } from "querystring";
 import { Product } from "../../../../store/product-context";
 import { Card } from "../../../../components/card";
@@ -11,20 +11,22 @@ interface CategoryProps {
   categoryName: string;
 }
 
-const Category: NextPage<CategoryProps> = (props) => {
-  if (!props.categories) {
+const Category: NextPage<CategoryProps> = ({ categories, categoryName }) => {
+  if (!categories) {
     return <p>Loading Categories.</p>;
   }
+
+  const mappedItemsList = categories.map((item, index) => {
+    return <Card key={index} item={item} />;
+  });
 
   return (
     <main className="category">
       <div className="category__title">
-        <h2 className="category__heading">{props.categoryName}</h2>
+        <h2 className="category__heading">{categoryName}</h2>
       </div>
       <ProductsList>
-        {props.categories.map((item, index) => {
-          return <Card key={index} item={item} />;
-        })}
+        {mappedItemsList}
       </ProductsList>
       <div className="custom-shape-divider-bottom-1653940688">
         <svg

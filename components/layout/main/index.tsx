@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 interface ContentProps {
   children?: React.ReactNode;
 }
 
-export const MainContent: React.FC<ContentProps> = ({children}) => {
-  return <main className='content'>{children}</main>
-}
+export const MainContent = ({ children }: ContentProps) => {
+  return <main className="content">{children}</main>;
+};
